@@ -6,13 +6,102 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hello, World!!!</h1>
-    <script>
-        "use strict";
-        let name = "Daniil Yavdoschuk ";
-        let age = 29;
-        let message = " I'm a Batman";
-        let printMessage = alert(name + age + message);
-    </script>
+    <h1>Массивы!</h1>
+    
+<script>
+   "use strict";
+  //Задача №1//
+  let students = [
+   {
+         name: 'Vadim',
+         birthYear: 1944,
+         gender: 'male'
+     },
+      {
+         name: 'Oleg',
+         birthYear: 1957,
+         gender: 'male'
+     },
+     {
+         name: 'Vasya',
+         birthYear: 1993,
+         gender: 'male'
+     },
+     {
+         name: 'Alexa',
+         birthYear: 1999,
+         gender: 'female'
+     },
+     {
+         name: 'Olga',
+         birthYear: 1996,
+         gender: 'male'
+     },
+     {
+         name: 'Alina',
+         birthYear: 2006,
+         gender: 'male'
+     }
+
+   ];
+function getAverageDate(obj) {
+    let sumAge = 0;
+    for (let i = 0; i < obj.length; i++) {
+        sumAge += obj[i]['birthYear'];
+    };
+        return sumAge / obj.length;
+};
+    function getAverageAge(obj) {
+      return 2020 - getAverageDate(obj);
+    };
+    console.log(getAverageAge(students));
+
+    
+
+    function getMostGender(obj) {
+      let male = 0;
+      let female = 0;
+      for (let i = 0; i < obj.length; i++){
+        let check = obj[i]["gender"];
+        check === "male" ? ++male : ++female;
+      }
+      if(male > female) { return "male"}
+         if (female > male)  {return "female"}
+         else {return 'equal'}
+    };
+    console.log(getMostGender(students));
+    //Задача №2// 
+    let fruits = ['Banana', 'Apple', 'Pineapple', 'Qiwi', 'Orange', 'Melon'];
+
+    
+    function clone(fruits){
+      let clone = [];
+      for (let key in fruits) {
+          clone[key] = fruits[key];
+      }
+      return clone;
+
+    };
+    
+    let newFruits = clone(fruits);
+
+    newFruits[2] = 'Pear';
+    
+    console.log(fruits); 
+    console.log(newFruits);
+ //Задача №3//
+
+let arr = [1, 2, 3, 4, 5, 6, 12, 33, 41, 34, 88, 91];
+function filter(array, isEven) {
+    let arrNew = [];
+    for ( let i = 0; i < array.length; i++) {
+         if (isEven(array[i])) arrNew.push(array[i]);
+      }
+    return arrNew; 
+}
+function isEven(x) { return x % 2 === 0; }
+console.log(filter(arr, isEven)); 
+
+</script>
 </body>
 </html>
